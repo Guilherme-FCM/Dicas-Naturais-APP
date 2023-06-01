@@ -3,64 +3,53 @@ package com.example.dicasnaturais.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.dicasnaturais.R;
+import com.example.dicasnaturais.daos.TipDao;
+import com.example.dicasnaturais.databinding.FragmentCreateTipsBinding;
+import com.example.dicasnaturais.models.Tip;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CreateTipsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CreateTipsFragment extends Fragment {
+    private FragmentCreateTipsBinding binding;
+    private TipDao dao;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CreateTipsFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CreateTips.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CreateTipsFragment newInstance(String param1, String param2) {
-        CreateTipsFragment fragment = new CreateTipsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public CreateTipsFragment(TipDao dao) {
+        this.dao = dao;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_tips, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentCreateTipsBinding.inflate(inflater);
+        View root = binding.getRoot();
+
+        binding.createButton.setOnClickListener(this::createTip);
+
+        return root;
+    }
+
+    public void createTip(View view) {
+        String title = binding.title.getText().toString();
+        String description = binding.description.getText().toString();
+
+        Tip tip = new Tip(title, description);
+        dao.insert(tip);
+
+        renderListTipsFragment();
+    }
+
+    public void renderListTipsFragment() {
+        FragmentTransaction fragTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragTransaction.replace(R.id.frame, new ListTipsFragment(dao));
+        fragTransaction.commit();
     }
 }

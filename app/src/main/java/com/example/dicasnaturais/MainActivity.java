@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         db = Database.getConnection(getApplicationContext());
         fragManager = getSupportFragmentManager();
 
-        render(new ListTipsFragment());
+        render(new ListTipsFragment(db.tipDao()));
     }
 
     @Override

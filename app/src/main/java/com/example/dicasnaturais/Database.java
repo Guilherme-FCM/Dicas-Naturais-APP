@@ -13,6 +13,6 @@ public abstract class Database extends RoomDatabase {
     abstract TipDao tipDao();
 
     public static Database getConnection(Context context) {
-        return Room.databaseBuilder(context, Database.class, "dicas_naturais").build();
-    };
+        return Room.databaseBuilder(context, Database.class, "dicas_naturais").allowMainThreadQueries().build();
+    }
 }
