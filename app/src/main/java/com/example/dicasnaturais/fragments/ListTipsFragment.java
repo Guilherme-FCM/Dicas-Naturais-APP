@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.dicasnaturais.MainActivity;
 import com.example.dicasnaturais.R;
+import com.example.dicasnaturais.adapters.TipsCardViewAdapter;
 import com.example.dicasnaturais.daos.TipDao;
 import com.example.dicasnaturais.databinding.FragmentListTipsBinding;
 import com.example.dicasnaturais.models.Tip;
@@ -38,7 +40,11 @@ public class ListTipsFragment extends Fragment {
 
         binding.addButton.setOnClickListener(this::renderCreateTipsFragment);
 
-        Toast.makeText(getActivity(), "" + dao.list().size(), Toast.LENGTH_SHORT).show();
+        TipsCardViewAdapter adapter = new TipsCardViewAdapter(listAllTips());
+        binding.recyclerView.setLayoutManager(
+                new LinearLayoutManager(getContext())
+        );
+        binding.recyclerView.setAdapter(adapter);
 
         return root;
     }
