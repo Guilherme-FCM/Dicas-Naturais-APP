@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.dicasnaturais.MainActivity;
 import com.example.dicasnaturais.R;
 import com.example.dicasnaturais.adapters.TipsCardViewAdapter;
 import com.example.dicasnaturais.daos.TipDao;
