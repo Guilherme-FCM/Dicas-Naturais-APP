@@ -1,5 +1,6 @@
 package com.example.dicasnaturais;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -7,6 +8,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.dicasnaturais.databinding.ActivityMainBinding;
@@ -25,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         db = Database.getConnection(getApplicationContext());
+
         fragManager = getSupportFragmentManager();
+        setSupportActionBar(binding.toolbar);
 
         render(new ListTipsFragment(db.tipDao()));
     }
@@ -34,6 +40,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     void render(Fragment fragment) {
