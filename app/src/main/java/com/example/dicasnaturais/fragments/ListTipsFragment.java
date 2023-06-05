@@ -45,10 +45,8 @@ public class ListTipsFragment extends Fragment {
 
         binding.addButton.setOnClickListener(this::renderCreateTipsFragment);
 
-        TipsCardViewAdapter adapter = new TipsCardViewAdapter(this.tips);
-        binding.recyclerView.setLayoutManager(
-                new LinearLayoutManager(getContext())
-        );
+        TipsCardViewAdapter adapter = new TipsCardViewAdapter(getActivity().getSupportFragmentManager(), this.tips);
+        binding.recyclerView.setLayoutManager( new LinearLayoutManager(getContext()) );
         binding.recyclerView.setAdapter(adapter);
 
         return root;
