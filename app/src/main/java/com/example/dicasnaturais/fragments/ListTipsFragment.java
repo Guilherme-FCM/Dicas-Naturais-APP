@@ -21,9 +21,16 @@ import java.util.List;
 public class ListTipsFragment extends Fragment {
     private FragmentListTipsBinding binding;
     private TipDao dao;
+    private List<Tip> tips;
 
     public ListTipsFragment(TipDao dao) {
         this.dao = dao;
+        this.tips = dao.list();
+    }
+
+    public ListTipsFragment(TipDao dao, List<Tip> tips) {
+        this.dao = dao;
+        this.tips = tips;
     }
 
     @Override
@@ -38,17 +45,13 @@ public class ListTipsFragment extends Fragment {
 
         binding.addButton.setOnClickListener(this::renderCreateTipsFragment);
 
-        TipsCardViewAdapter adapter = new TipsCardViewAdapter(listAllTips());
+        TipsCardViewAdapter adapter = new TipsCardViewAdapter(this.tips);
         binding.recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext())
         );
         binding.recyclerView.setAdapter(adapter);
 
         return root;
-    }
-
-    public List<Tip> listAllTips() {
-        return dao.list();
     }
 
     public void renderCreateTipsFragment(View view) {

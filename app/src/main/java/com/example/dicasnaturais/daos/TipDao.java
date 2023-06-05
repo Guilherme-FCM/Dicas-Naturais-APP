@@ -23,4 +23,7 @@ public interface TipDao {
 
     @Query("SELECT * FROM Tip")
     List<Tip> list();
+
+    @Query("SELECT * FROM Tip WHERE LOWER(title) LIKE LOWER('%' || :title || '%')")
+    List<Tip> filterByTitle(String title);
 }

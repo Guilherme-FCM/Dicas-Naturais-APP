@@ -7,10 +7,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.dicasnaturais.databinding.ActivityMainBinding;
@@ -45,20 +48,56 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.profile_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                closeKeyboard();
+                return this.onQueryTextChange(query);
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText.equals(""))
+                    render(new ListTipsFragment(db.tipDao()));
+                else
+                    render(new ListTipsFragment(db.tipDao(), db.tipDao().filterByTitle(newText)));
+                return true;
+            }
+        });
+        searchView.setOnCloseListener(() -> {
+            render(new ListTipsFragment(db.tipDao()));
+            closeKeyboard();
+            return true;
+        });
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-
-        }
-        return super.onOptionsItemSelected(item);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.profile) {
+            Toast.makeText(this, "Meu perfil", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.tips) {
+            Toast.makeText(this, "Minhas dicas", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.settings) {
+            Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show();
+            return true;
+        } else return super.onOptionsItemSelected(item);
     }
 
-    void render(Fragment fragment) {
+    private void render(Fragment fragment) {
         fragTransaction = fragManager.beginTransaction();
         fragTransaction.replace(R.id.frame, fragment);
         fragTransaction.commit();
+    }
+
+    private void closeKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 }
