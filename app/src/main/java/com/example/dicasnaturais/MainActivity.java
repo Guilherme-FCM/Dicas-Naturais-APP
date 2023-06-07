@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.dicasnaturais.databinding.ActivityMainBinding;
 import com.example.dicasnaturais.fragments.ListTipsFragment;
+import com.example.dicasnaturais.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.profile) {
-            Toast.makeText(this, "Meu perfil", Toast.LENGTH_SHORT).show();
+            render( new ProfileFragment(db.tipDao()) );
             return true;
         } else if (id == R.id.tips) {
             Toast.makeText(this, "Minhas dicas", Toast.LENGTH_SHORT).show();

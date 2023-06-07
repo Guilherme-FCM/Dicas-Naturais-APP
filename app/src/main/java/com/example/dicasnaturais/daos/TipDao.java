@@ -26,4 +26,7 @@ public interface TipDao {
 
     @Query("SELECT * FROM Tip WHERE LOWER(title) LIKE LOWER('%' || :title || '%')")
     List<Tip> filterByTitle(String title);
+
+    @Query("SELECT COUNT(*) FROM Tip")
+    int count();
 }
