@@ -86,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
         else if (id == R.id.settings)
             Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show();
 
+        else if (id == R.id.logout)
+            finish();
+
         else if (id == android.R.id.home)
             render( new ListTipsFragment(db.tipDao()) );
 

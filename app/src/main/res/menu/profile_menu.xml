@@ -16,4 +16,7 @@
     <item
         android:id="@+id/settings"
         android:title="Configurações" />
+    <item
+        android:id="@+id/logout"
+        android:title="Sair" />
 </menu>

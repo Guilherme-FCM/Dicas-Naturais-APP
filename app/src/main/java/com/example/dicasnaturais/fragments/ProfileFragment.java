@@ -16,7 +16,7 @@ import com.example.dicasnaturais.databinding.FragmentProfileBinding;
 public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;
     private TipDao tipDao;
-    private final int max = 5;
+    private final int max = 3;
 
     public ProfileFragment(TipDao tipDao) {
         this.tipDao = tipDao;
@@ -34,7 +34,7 @@ public class ProfileFragment extends Fragment {
         View root = binding.getRoot();
 
         int countTips = tipDao.count();
-        int level = (int) Math.floor(countTips / max);
+        int level = (int) Math.floor(countTips / max) + 1;
         int progress = countTips % max;
 
         binding.progress.setMax(max);
