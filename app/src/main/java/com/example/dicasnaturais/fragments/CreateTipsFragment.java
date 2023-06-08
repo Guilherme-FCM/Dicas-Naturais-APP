@@ -14,6 +14,8 @@ import com.example.dicasnaturais.daos.TipDao;
 import com.example.dicasnaturais.databinding.FragmentCreateTipsBinding;
 import com.example.dicasnaturais.models.Tip;
 
+import java.util.Random;
+
 public class CreateTipsFragment extends Fragment {
     private FragmentCreateTipsBinding binding;
     private TipDao dao;
@@ -43,6 +45,9 @@ public class CreateTipsFragment extends Fragment {
 
         Tip tip = new Tip(title, description);
         dao.insert(tip);
+
+        ShowCuriositiesDialogFragment dialog = new ShowCuriositiesDialogFragment();
+        dialog.show(getActivity().getSupportFragmentManager(), "ShowCuriositiesDialogFragment");
 
         renderListTipsFragment();
     }

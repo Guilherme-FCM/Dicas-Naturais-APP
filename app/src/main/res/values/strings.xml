@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Dicas Naturais</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="curiosities">
+        <item>Você sabia que a reciclagem de uma tonelada de papel pode salvar cerca de 17 árvores? Além disso, também ajuda a economizar energia e água, reduzindo a poluição e as emissões de gases de efeito estufa.</item>
+        <item>Você sabia que desligar aparelhos eletrônicos da tomada quando não estão em uso pode ajudar a reduzir o consumo de energia? Mesmo em modo de espera, muitos dispositivos continuam consumindo energia. Adotar essa prática simples pode fazer a diferença.</item>
+        <item>Você sabia que os oceanos desempenham um papel fundamental na regulação do clima global? Eles absorvem cerca de 30% do dióxido de carbono produzido pela atividade humana, ajudando a mitigar o impacto das mudanças climáticas.</item>
+        <item>Você sabia que a compostagem de resíduos orgânicos em vez de jogá-los no lixo comum pode ajudar a reduzir a quantidade de resíduos enviados para aterros sanitários? A compostagem transforma restos de alimentos e outros materiais orgânicos em adubo rico em nutrientes para uso em jardinagem e agricultura.</item>
+        <item>Você sabia que plantar árvores é uma forma eficaz de preservar o meio ambiente? As árvores absorvem dióxido de carbono, produzem oxigênio, fornecem habitat para a vida selvagem e ajudam a prevenir a erosão do solo.</item>
+        <item>Você sabia que a poluição do ar é responsável por milhões de mortes prematuras a cada ano? Reduzir a emissão de poluentes, como gases de escape de veículos e emissões industriais, pode ajudar a melhorar a qualidade do ar e proteger nossa saúde.</item>
+        <item>Você sabia que o desperdício de alimentos é um problema sério? Estima-se que cerca de um terço de todos os alimentos produzidos globalmente seja perdido ou desperdiçado. Ao reduzir o desperdício de alimentos, podemos economizar recursos naturais, como água e terra, e ajudar a combater a fome.</item>
+        <item>Você sabia que os plásticos descartáveis, como garrafas, sacolas e canudos, são uma grande fonte de poluição nos oceanos? Optar por alternativas reutilizáveis, como garrafas de água recarregáveis e sacolas de pano, pode ajudar a reduzir o problema do lixo plástico.</item>
+        <item>Você sabia que o uso excessivo de fertilizantes químicos na agricultura pode causar poluição da água? Os fertilizantes podem escorrer para os rios e lagos, causando a proliferação de algas nocivas e prejudicando a vida aquática. A agricultura sustentável e a utilização de métodos de fertilização responsáveis podem ajudar a proteger os recursos hídricos.</item>
+        <item>Você sabia que a preservação de habitats naturais, como florestas, pântanos e recifes de corais, é essencial para a conservação da biodiversidade? Esses ecossistemas abrigam uma variedade de espécies de plantas e animais, e sua destruição pode levar à perda irreparável da vida selvagem.</item>
+    </string-array>
 </resources>
