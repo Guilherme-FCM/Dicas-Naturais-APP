@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         db = Database.getConnection(getApplicationContext());
-
         fragManager = getSupportFragmentManager();
         setSupportActionBar(binding.toolbar);
 

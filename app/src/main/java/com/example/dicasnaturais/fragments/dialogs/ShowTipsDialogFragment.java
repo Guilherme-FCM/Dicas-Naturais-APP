@@ -1,4 +1,4 @@
-package com.example.dicasnaturais.fragments;
+package com.example.dicasnaturais.fragments.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import com.example.dicasnaturais.R;
 import com.example.dicasnaturais.daos.TipDao;
 import com.example.dicasnaturais.databinding.FragmentCreateTipsBinding;
+import com.example.dicasnaturais.fragments.dialogs.ShowCuriositiesDialogFragment;
 import com.example.dicasnaturais.models.Tip;
 
 public class CreateTipsFragment extends Fragment {

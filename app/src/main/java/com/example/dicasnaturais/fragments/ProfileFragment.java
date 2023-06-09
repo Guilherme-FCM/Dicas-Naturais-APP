@@ -22,7 +22,6 @@ public class ProfileFragment extends Fragment {
         this.tipDao = tipDao;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dicasnaturais.R;
-import com.example.dicasnaturais.fragments.ShowTipsDialogFragment;
+import com.example.dicasnaturais.fragments.dialogs.ShowTipsDialogFragment;
 import com.example.dicasnaturais.models.Tip;
 
 import java.util.List;
