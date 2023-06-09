@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.dicasnaturais.databinding.ActivityMainBinding;
 import com.example.dicasnaturais.fragments.ListTipsFragment;
+import com.example.dicasnaturais.fragments.MyTipsFragment;
 import com.example.dicasnaturais.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,11 +37,6 @@ public class MainActivity extends AppCompatActivity {
         render(new ListTipsFragment(db.tipDao()));
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        finish();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             render( new ProfileFragment(db.tipDao()) );
 
         else if (id == R.id.tips)
-            Toast.makeText(this, "Minhas dicas", Toast.LENGTH_SHORT).show();
+            render( new MyTipsFragment(db.tipDao()) );
 
         else if (id == R.id.settings)
             Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show();
