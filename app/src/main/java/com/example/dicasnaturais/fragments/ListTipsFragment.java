@@ -41,7 +41,6 @@ public class ListTipsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentListTipsBinding.inflate(inflater);
-        View root = binding.getRoot();
 
         binding.addButton.setOnClickListener(this::renderCreateTipsFragment);
 
@@ -49,7 +48,7 @@ public class ListTipsFragment extends Fragment {
         binding.recyclerView.setLayoutManager( new LinearLayoutManager(getContext()) );
         binding.recyclerView.setAdapter(adapter);
 
-        return root;
+        return binding.getRoot();
     }
 
     public void renderCreateTipsFragment(View view) {

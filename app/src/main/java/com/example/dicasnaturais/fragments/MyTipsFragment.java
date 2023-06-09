@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyTipsFragment extends Fragment {
-
     private FragmentMyTipsBinding binding;
     private TipDao tipDao;
     private List<Tip> tips;
@@ -36,7 +35,6 @@ public class MyTipsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMyTipsBinding.inflate(inflater);
-        View root = binding.getRoot();
 
         ArrayAdapter tipsAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, getTipsTitle());
         binding.tips.setAdapter(tipsAdapter);
@@ -45,7 +43,7 @@ public class MyTipsFragment extends Fragment {
             dialog.show(getActivity().getSupportFragmentManager(), "ShowOptionsDialogFragment");
         });
 
-        return root;
+        return binding.getRoot();
     }
 
     private List<String> getTipsTitle() {

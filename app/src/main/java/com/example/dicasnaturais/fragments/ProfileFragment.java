@@ -30,7 +30,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater);
-        View root = binding.getRoot();
 
         int countTips = tipDao.count();
         int level = (int) Math.floor(countTips / max) + 1;
@@ -40,6 +39,6 @@ public class ProfileFragment extends Fragment {
         binding.level.setText(String.valueOf(level));
         binding.progress.setProgress(progress);
 
-        return root;
+        return binding.getRoot();
     }
 }

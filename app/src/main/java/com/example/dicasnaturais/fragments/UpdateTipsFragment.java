@@ -33,7 +33,6 @@ public class UpdateTipsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentCreateTipsBinding.inflate(inflater);
-        View root = binding.getRoot();
 
         String[] categories = getResources().getStringArray(R.array.categories);
         categories[0] = tip.getCategory();
@@ -51,7 +50,7 @@ public class UpdateTipsFragment extends Fragment {
         binding.createButton.setText("Salvar Dica");
         binding.createButton.setOnClickListener(this::updateTip);
 
-        return root;
+        return binding.getRoot();
     }
 
     public void updateTip(View view) {

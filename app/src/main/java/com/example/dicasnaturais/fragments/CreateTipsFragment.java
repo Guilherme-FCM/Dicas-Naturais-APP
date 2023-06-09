@@ -32,7 +32,6 @@ public class CreateTipsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentCreateTipsBinding.inflate(inflater);
-        View root = binding.getRoot();
 
         ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(
                 getContext(),
@@ -43,7 +42,7 @@ public class CreateTipsFragment extends Fragment {
 
         binding.createButton.setOnClickListener(this::createTip);
 
-        return root;
+        return binding.getRoot();
     }
 
     public void createTip(View view) {
