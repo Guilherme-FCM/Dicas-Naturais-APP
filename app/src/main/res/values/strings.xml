@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">Dicas Naturais</string>
 
+    <string-array name="categories">
+        <item>-- Categoria --</item>
+        <item>Alimentação consciente</item>
+        <item>Conservação da água</item>
+        <item>Consumo consciente</item>
+        <item>Economia de energia</item>
+        <item>Mobilidade sustentável</item>
+        <item>Preservação da biodiversidade</item>
+        <item>Redução de resíduos</item>
+        <item>Reciclagem e reutilização</item>
+    </string-array>
+
     <string-array name="curiosities">
         <item>Você sabia que a reciclagem de uma tonelada de papel pode salvar cerca de 17 árvores? Além disso, também ajuda a economizar energia e água, reduzindo a poluição e as emissões de gases de efeito estufa.</item>
         <item>Você sabia que desligar aparelhos eletrônicos da tomada quando não estão em uso pode ajudar a reduzir o consumo de energia? Mesmo em modo de espera, muitos dispositivos continuam consumindo energia. Adotar essa prática simples pode fazer a diferença.</item>

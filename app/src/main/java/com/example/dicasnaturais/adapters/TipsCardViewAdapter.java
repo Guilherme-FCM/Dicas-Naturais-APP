@@ -44,6 +44,7 @@ public class TipsCardViewAdapter extends RecyclerView.Adapter<TipsCardViewAdapte
                 ? description
                 : description.substring(0, limit) + " [ ... ]"
         );
+        holder.category.setText(tip.getCategory());
 
         holder.show.setOnClickListener((view -> {
             ShowTipsDialogFragment dialog = new ShowTipsDialogFragment(tip);
@@ -59,6 +60,7 @@ public class TipsCardViewAdapter extends RecyclerView.Adapter<TipsCardViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private TextView description;
+        private TextView category;
         private TextView show;
 
         public ViewHolder(@NonNull View itemView) {
@@ -66,6 +68,7 @@ public class TipsCardViewAdapter extends RecyclerView.Adapter<TipsCardViewAdapte
             show = itemView.findViewById(R.id.show);
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
+            category = itemView.findViewById(R.id.category);
         }
     }
 }

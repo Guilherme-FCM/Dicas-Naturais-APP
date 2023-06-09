@@ -10,12 +10,14 @@ public class Tip {
 
     private String title;
     private String description;
+    private String category;
 
     public Tip() {}
 
-    public Tip(String title, String description) {
+    public Tip(String title, String description, String category) {
         this.title = title;
         this.description = description;
+        this.category = category;
     }
 
     public int getId() {
@@ -40,5 +42,13 @@ public class Tip {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

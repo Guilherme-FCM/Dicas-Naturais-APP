@@ -8,13 +8,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import com.example.dicasnaturais.R;
 import com.example.dicasnaturais.daos.TipDao;
 import com.example.dicasnaturais.databinding.FragmentCreateTipsBinding;
 import com.example.dicasnaturais.models.Tip;
-
-import java.util.Random;
 
 public class CreateTipsFragment extends Fragment {
     private FragmentCreateTipsBinding binding;
@@ -34,6 +33,13 @@ public class CreateTipsFragment extends Fragment {
         binding = FragmentCreateTipsBinding.inflate(inflater);
         View root = binding.getRoot();
 
+        ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(
+                getContext(),
+                R.array.categories,
+                android.R.layout.simple_spinner_item
+        );
+        binding.category.setAdapter(categoryAdapter);
+
         binding.createButton.setOnClickListener(this::createTip);
 
         return root;
@@ -42,8 +48,9 @@ public class CreateTipsFragment extends Fragment {
     public void createTip(View view) {
         String title = binding.title.getText().toString();
         String description = binding.description.getText().toString();
+        String category = binding.category.getSelectedItem().toString();
 
-        Tip tip = new Tip(title, description);
+        Tip tip = new Tip(title, description, category);
         dao.insert(tip);
 
         ShowCuriositiesDialogFragment dialog = new ShowCuriositiesDialogFragment();

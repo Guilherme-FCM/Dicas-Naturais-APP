@@ -24,8 +24,8 @@ public class ShowTipsDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(tip.getTitle())
-                .setMessage(tip.getDescription())
-                .setIcon(R.drawable.java_spring_web);
+                .setIcon(R.drawable.java_spring_web)
+                .setMessage(tip.getDescription() + "\n\nCategoria: " + tip.getCategory());
 
         return builder.create();
     }
